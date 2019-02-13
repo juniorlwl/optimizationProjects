@@ -1,0 +1,81 @@
+data;
+
+set NUTR := A B1 B2 C NA Cal;
+set D_FOOD := BEST CHKS FISH HAM MCH MTL SPG TUSA;
+set B_FOOD := VAYO HNC MILK RABR GRAN;
+set L_FOOD := PBJ GAPL BEST CHKS FISH HAM;
+
+#Dinner Key: BEST=Beef Stew (1 can), CHK=chicken sandwich, FISH=fish (tilapia), 
+#		HAM=hamburger, MCH=Macaroni&Cheese (1pkg), MTL=Meat loaf (4oz), 
+#		SPG=spaghetti (4oz), Tuna and Egg Salad (8 oz pacakge)		
+param:   cost  f_min  f_max :=
+  BEST   3.59    0     2
+  CHKS   2.59    0     2
+  FISH   3.29    0     2
+  HAM    2.89    0     2
+  MCH    1.89    0     2
+  MTL    1.99    0     2
+  SPG    1.99    0     2 
+  TUSA   2.39    0     2;
+  
+  
+#Breakfast Key:MILK=milk (1 qrt), VAYO=Vanilla Yogurt (8oz or 1cup),
+#		HNC=Honey Nut Cheerios (1bowl or 3 cups), RABR=Raisin Bran (1 bowl or 3 cups)
+#		GRAN=Granola (1 bowl or 2 cups)
+param: 	 b_cost  b_f_min  b_f_max :=
+  VAYO   1.24      0    	 2  
+  HNC    1.49      0    	 2 
+  MILK   1.49      0    	 2
+  RABR   1.39      0         2
+  GRAN   1.63      0         2;
+
+#Lunch Key:PBJ=Peanut Butter and Jelly Sandwich (qty=1), 
+#		GAPL = Gala Apple (1 apple), BEST=Beef Stew (1 can),
+#		CHK=chicken sandwich, FISH=fish (tilapia), HAM=hamburger
+param: 	 l_cost  l_f_min  l_f_max :=
+  PBJ    1.24      0    	 2  
+  GAPL   0.50      0         2
+  BEST   3.19      0         2
+  CHKS   2.59      0         2
+  FISH   3.29      0         2
+  HAM    2.89      0         2;
+
+
+#Key:A=%Vit A, C=%Vit C, B1=%Thiamine, B2=%Riboflavin, NA=mg of sodium, Cal=Calories
+param:   n_min  n_max :=
+   A      100   2857
+   C      100   2857
+   B1     100   2857
+   B2     100   2857 
+   NA	  0		2400
+   Cal	  2285  3428;
+
+
+param amt (tr):
+           A    C   B1   B2   NA   Cal :=
+   BEST   80    8   10   15   2475 700
+   CHKS    8    0   20   20   2180 770
+   FISH    8   10   15   10   945  440
+   HAM    40   40   35   10   2278 430
+   MCH    15   35   15   15   1182 315
+   MTL    70   30   15   15   896  400
+   SPG    25   50   25   15   1329 370
+   TUSA   50    8   25   20   260  420;
+   
+ param b_amt (tr):
+           A    C   B1   B2   NA   Cal :=
+   VAYO    4    4   10   15   938  295
+   HNC	  30   30   75   75   760  440
+   MILK   24    0    0    0   480  620  
+   RABR   30    0   75   75   600  570
+   GRAN    0    0    0    0    60  690;
+   
+ param l_amt (tr):
+           A    C   B1   B2   NA   Cal :=
+   PBJ     0    0   10   15   483  327
+   GAPL    0   30    0    0   19   173
+   BEST   80    8   10   15   2475 700
+   CHKS    8    0   20   20   2180 770
+   FISH    8   10   15   10   945  440
+   HAM    40   40   35   10   2278 430 ;
+   
